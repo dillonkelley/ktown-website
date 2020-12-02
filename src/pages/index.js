@@ -22,12 +22,14 @@ const WelcomePage = () => {
   return (
     <Layout>
       <Head />
-      <h1>karissa talanian</h1>
+      <div className={indexStyles.container}>
+        <h1>karissa talanian</h1>
 
-      <Image
-        className={indexStyles.photo}
-        fluid={data.file.childImageSharp.fluid}
-      />
+        <Image
+          className={indexStyles.photo}
+          fluid={data.file.childImageSharp.fluid}
+        />
+      </div>
     </Layout>
   )
 }

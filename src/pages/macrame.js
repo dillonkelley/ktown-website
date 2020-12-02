@@ -57,6 +57,8 @@ const PhotosPage = () => {
       >
         {data.allStrapiMacrames.edges.map((edge, i) => {
           console.log("searching for the height:", edge.node.childImageSharp)
+          //random funtion
+          console.log(i)
           return (
             <Card
               key={i}

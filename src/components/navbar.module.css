@@ -21,8 +21,11 @@ nav a {
 
 nav a:hover {
   background: none;
-  color: rgb(239, 255, 15);
+  color: #efff0f;
   text-decoration: none;
+}
+.active {
+  color: #efff0f;
 }
 
 .hamburger {

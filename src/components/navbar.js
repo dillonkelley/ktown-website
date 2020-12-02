@@ -68,10 +68,18 @@ const Navbar = () => {
           />
         </Link>
 
-        <Link to="/macrame">macramé</Link>
-        <Link to="/art">art</Link>
-        <Link to="/about">about</Link>
-        <Link to="/contact">contact</Link>
+        <Link to="/macrame" activeClassName={navbarStyle.active}>
+          macramé
+        </Link>
+        <Link to="/art" activeClassName={navbarStyle.active}>
+          art
+        </Link>
+        <Link to="/about" activeClassName={navbarStyle.active}>
+          about
+        </Link>
+        <Link to="/contact" activeClassName={navbarStyle.active}>
+          contact
+        </Link>
 
         {/*Social Media ************** */}
         <div className={navbarStyle.icons} id="social-medias">

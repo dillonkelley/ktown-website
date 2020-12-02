@@ -6,7 +6,7 @@ const BackCard = props => {
   const dynamicAttributes = {
     background: `#${props.background}`,
     color: `#${props.fontColor}`,
-    height: `22rem`,
+    height: `17rem`,
   }
   console.log("card height:", props.height)
   return (

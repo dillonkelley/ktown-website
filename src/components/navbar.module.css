@@ -1,0 +1,70 @@
+.sidebarMain {
+  max-width: 900px;
+  margin: 20px 20px;
+  width: 30 px;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  text-align: right;
+}
+
+.sidebarMain h1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+nav a {
+  display: block;
+  color: #f4f4f4;
+  padding: 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: none;
+  color: rgb(239, 255, 15);
+  text-decoration: none;
+}
+
+.hamburger {
+  margin: 0;
+  font-size: 30px;
+  color: #f4f4f4;
+  display: none;
+  width: 30px;
+  float: left;
+  padding: 2rem 1rem;
+}
+.toggle {
+  display: none;
+}
+.logo {
+  border-radius: 50%;
+}
+
+.icons {
+  display: inline-flex;
+}
+@media screen and (max-width: 700px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .sidebarMain {
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .sidebarMain a {
+    display: block;
+    color: #f4f4f4;
+  }
+
+  a:hover {
+    color: #48ff00;
+  }
+  .sidebarMain {
+    display: block;
+    background: #1864c7;
+    width: 50%;
+  }
+}

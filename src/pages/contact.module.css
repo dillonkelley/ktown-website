@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  color: #f4f4f4;
+  background: none;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.description {
+  max-width: 800px;
+  padding: 1rem;
+}
+.description p {
+  font-size: 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.form input {
+  padding: 0.5rem;
+}
+
+.form label {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+
+.messageBox {
+  height: 15rem;
+  padding: 1rem;
+}
+
+.submit {
+  margin-top: 1rem;
+  padding: 0.5rem;
+}

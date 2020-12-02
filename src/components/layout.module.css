@@ -1,0 +1,28 @@
+h1 {
+  font-family: "Raleway", sans-serif;
+}
+
+main {
+  color: #f4f4f4;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  margin-top: 1.7rem;
+  margin-left: 200px;
+  padding: 1px 16px;
+  margin-right: 5rem;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    margin: 0;
+    margin-left: 1rem;
+  }
+}

@@ -46,7 +46,7 @@ const AboutPage = () => {
           from japan
         </p>
         <p>
-          <a href="http://eyevyberecords.com" target="_blank">
+          <a href="http://eyevyberecords.com" target="_blank" rel="noreferrer">
             http://eyevyberecords.com
           </a>
         </p>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { window } from "browser-monads"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa"
 
 import navbarStyle from "./navbar.module.css"
 

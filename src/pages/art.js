@@ -6,6 +6,7 @@ import { window } from "browser-monads"
 import Head from "../components/head"
 import Layout from "../components/layout"
 import Card from "../components/cardTemplate/fullCard"
+import { shuffleArray } from "../utils/randomizer"
 
 import "../styles/masonry.css"
 
@@ -46,6 +47,8 @@ const ArtPage = () => {
       }
     }
   `)
+  const arts = data.allStrapiArts.edges
+  const shuffledArt = shuffleArray(arts)
   return (
     <Layout>
       <Head title="art" />
@@ -55,7 +58,7 @@ const ArtPage = () => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {data.allStrapiArts.edges.map((edge, i) => {
+        {shuffledArt.map((edge, i) => {
           console.log("searching for the height:", edge.node.childImageSharp)
           return (
             <Card

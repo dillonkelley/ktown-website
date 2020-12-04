@@ -7,6 +7,7 @@ import Head from "../components/head"
 import Layout from "../components/layout"
 import Card from "../components/cardTemplate/fullCard"
 
+import { shuffleArray } from "../utils/randomizer"
 import "../styles/masonry.css"
 
 const PhotosPage = () => {
@@ -46,6 +47,8 @@ const PhotosPage = () => {
       }
     }
   `)
+  const macrames = data.allStrapiMacrames.edges
+  const shuffledMacrame = shuffleArray(macrames)
   return (
     <Layout>
       <Head title="macramé" />
@@ -55,7 +58,7 @@ const PhotosPage = () => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {data.allStrapiMacrames.edges.map((edge, i) => {
+        {shuffledMacrame.map((edge, i) => {
           console.log("searching for the height:", edge.node.childImageSharp)
           //random funtion
           console.log(i)

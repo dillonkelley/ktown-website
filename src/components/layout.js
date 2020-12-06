@@ -1,4 +1,5 @@
 import React from "react"
+import SimpleReactLightbox from "simple-react-lightbox"
 
 import Navbar from "./navbar"
 import Footer from "./footer"
@@ -11,7 +12,9 @@ const Layout = props => {
     <div className={layoutStyle.body}>
       <Navbar />
       <div className={layoutStyle.content}>
-        <main>{props.children}</main>
+        <SimpleReactLightbox>
+          <main>{props.children}</main>
+        </SimpleReactLightbox>
       </div>
       <Footer />
     </div>

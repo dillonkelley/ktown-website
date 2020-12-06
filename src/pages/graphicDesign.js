@@ -44,25 +44,22 @@ const GraphicDesignPage = () => {
     <Layout>
       <Head title="graphic design" />
       <h1>graphic design</h1>
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {shuffledDesign.map((edge, i) => {
-          console.log("searching for the height:", edge.node.childImageSharp)
-          return (
+
+      {shuffledDesign.map((edge, i) => {
+        console.log("searching for the height:", edge.node.childImageSharp)
+        return (
+          <div className="posters">
             <Card
               key={i}
               src={edge.node.photo.childImageSharp.fluid}
-              title={edge.node.Title}
+              title={edge.node.title}
               description={edge.node.description}
               background={edge.node.backgroundHex}
               fontColor={edge.node.fontHex}
             />
-          )
-        })}
-      </Masonry>
+          </div>
+        )
+      })}
     </Layout>
   )
 }

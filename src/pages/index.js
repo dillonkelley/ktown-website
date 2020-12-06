@@ -10,10 +10,16 @@ import indexStyles from "./index.module.css"
 const WelcomePage = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "index" }) {
-        childImageSharp {
-          fluid(maxWidth: 1200, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
+      allStrapiSplashImg {
+        edges {
+          node {
+            splashIMg {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }
@@ -27,7 +33,10 @@ const WelcomePage = () => {
 
         <Image
           className={indexStyles.photo}
-          fluid={data.file.childImageSharp.fluid}
+          fluid={
+            data.allStrapiSplashImg.edges[0].node.splashIMg.childImageSharp
+              .fluid
+          }
         />
       </div>
     </Layout>

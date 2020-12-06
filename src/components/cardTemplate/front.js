@@ -6,7 +6,12 @@ import Img from "gatsby-image"
 
 const FrontCard = props => {
   return (
-    <div onClick={props.onClick}>
+    <div
+      onClick={props.onClick}
+      onKeyPress={props.onClick}
+      role="button"
+      tabIndex={0}
+    >
       <Img fluid={props.src} objectFit="contain" />
     </div>
   )

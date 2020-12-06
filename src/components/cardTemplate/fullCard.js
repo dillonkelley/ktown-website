@@ -31,6 +31,8 @@ const FlipCard = props => {
       onMouseLeave={handleMouseHover}
       style={cursorDisplay}
       className={cardStyle.card}
+      role="button"
+      tabIndex={0}
     >
       <Card isFlipped={isFlipped} flipDirection="vertical">
         <FrontCard src={props.src} onClick={handleClick} />

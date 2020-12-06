@@ -18,6 +18,24 @@ const AboutPage = () => {
           }
         }
       }
+      allStrapiAboutMe {
+        edges {
+          node {
+            portrait {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
+      about {
+        childMarkdownRemark {
+          html
+        }
+      }
     }
   `)
   return (
@@ -27,29 +45,17 @@ const AboutPage = () => {
         <h1>about me</h1>
         <div className={aboutPageStyles.photoContainer}>
           <Img
-            fluid={data.file.childImageSharp.fluid}
+            fluid={
+              data.allStrapiAboutMe.edges[0].node.portrait.childImageSharp.fluid
+            }
             className={aboutPageStyles.photo}
           />
         </div>
-        <p>
-          earth ~ rural new england ~ art school ~ logan square ~ avondale ~ ??
-        </p>
-        <p>
-          loves color, functional objects, op art, records, flowers, the sun,
-        </p>
-        <p>play the drums</p>
-        <p>learning 日本語</p>
-        <p>i have a dog that i love a lot</p>
-
-        <p>
-          also run a small press cassette label that releases experimental music
-          from japan
-        </p>
-        <p>
-          <a href="http://eyevyberecords.com" target="_blank" rel="noreferrer">
-            http://eyevyberecords.com
-          </a>
-        </p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.about.childMarkdownRemark.html,
+          }}
+        ></div>
       </div>
     </Layout>
   )

@@ -52,7 +52,10 @@ const Navbar = () => {
       <label
         htmlFor="toggle"
         onClick={toggleNavDisplay}
+        onKeyPress={toggleNavDisplay}
         className={navbarStyle.hamburger}
+        role="button"
+        tabIndex={0}
       >
         &#9776;
       </label>
@@ -72,7 +75,10 @@ const Navbar = () => {
           macramé
         </Link>
         <Link to="/art" activeClassName={navbarStyle.active}>
-          art
+          fiber art
+        </Link>
+        <Link to="/graphicDesign" activeClassName={navbarStyle.active}>
+          graphic design
         </Link>
         <Link to="/about" activeClassName={navbarStyle.active}>
           about

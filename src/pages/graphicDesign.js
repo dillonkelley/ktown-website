@@ -9,13 +9,13 @@ import { shuffleArray } from "../utils/randomizer"
 
 import "../styles/masonry.css"
 
-const ArtPage = () => {
+const GraphicDesignPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allStrapiArts {
+      allStrapiGraphics {
         edges {
           node {
-            Title
+            title
             description
             backgroundHex
             fontHex
@@ -31,8 +31,9 @@ const ArtPage = () => {
       }
     }
   `)
-  const arts = data.allStrapiArts.edges
-  const shuffledArt = shuffleArray(arts)
+  const graphicDesign = data.allStrapiGraphics.edges
+  const shuffledDesign = shuffleArray(graphicDesign)
+
   const breakpointColumnsObj = {
     default: 3,
     1100: 3,
@@ -41,14 +42,14 @@ const ArtPage = () => {
   }
   return (
     <Layout>
-      <Head title="art" />
-      <h1>fiber art</h1>
+      <Head title="graphic design" />
+      <h1>graphic design</h1>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {shuffledArt.map((edge, i) => {
+        {shuffledDesign.map((edge, i) => {
           console.log("searching for the height:", edge.node.childImageSharp)
           return (
             <Card
@@ -66,4 +67,4 @@ const ArtPage = () => {
   )
 }
 
-export default ArtPage
+export default GraphicDesignPage

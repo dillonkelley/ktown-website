@@ -12,8 +12,11 @@ const BackCard = props => {
   return (
     <div
       onClick={props.onClick}
+      onKeyPress={props.onClick}
       className={cardStyle.back}
       style={dynamicAttributes}
+      role="button"
+      tabIndex={0}
     >
       <h3 className={cardStyle.title}>{props.title}</h3>
       <p className={cardStyle.description}>{props.description}</p>

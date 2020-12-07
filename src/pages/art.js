@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Masonry from "react-masonry-css"
-
+import { SRLWrapper } from "simple-react-lightbox"
+import Img from "gatsby-image"
 import Head from "../components/head"
 import Layout from "../components/layout"
-import Card from "../components/cardTemplate/fullCard"
 import { shuffleArray } from "../utils/randomizer"
 
 import "../styles/masonry.css"
@@ -43,25 +43,43 @@ const ArtPage = () => {
     <Layout>
       <Head title="art" />
       <h1>fiber art</h1>
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
+      <SRLWrapper
+        options={{
+          settings: {
+            overlayColor: "rgba(0, 0, 0, 0.9)",
+            height: "91vh",
+          },
+          buttons: {
+            showDownloadButton: false,
+            showThumbnailsButton: false,
+            showAutoplayButton: false,
+            size: "10px",
+            showCloseButton: true,
+          },
+          thumbnails: {
+            showThumbnails: false,
+          },
+        }}
       >
-        {shuffledArt.map((edge, i) => {
-          console.log("searching for the height:", edge.node.childImageSharp)
-          return (
-            <Card
-              key={i}
-              src={edge.node.photo.childImageSharp.fluid}
-              title={edge.node.Title}
-              description={edge.node.description}
-              background={edge.node.backgroundHex}
-              fontColor={edge.node.fontHex}
-            />
-          )
-        })}
-      </Masonry>
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {shuffledArt.map((edge, i) => {
+            return (
+              <div className="posters" key={i} role="button" tabIndex={0}>
+                <Img
+                  fluid={edge.node.photo.childImageSharp.fluid}
+                  title={edge.node.Title}
+                  alt={edge.node.description}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            )
+          })}
+        </Masonry>
+      </SRLWrapper>
     </Layout>
   )
 }

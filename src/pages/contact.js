@@ -10,9 +10,6 @@ const ContactPage = () => {
     <Layout>
       <Head title="contact" />
       <h1>contact</h1>
-      <p className={formStyle.description}>
-        enter text below for order inquiries or other general commentary
-      </p>
       <form
         action="https://getform.io/f/d20456f5-0b0d-421c-8685-5c4a8407b7c4"
         method="POST"
@@ -26,7 +23,7 @@ const ContactPage = () => {
           type="text"
           name="message"
           className={formStyle.messageBox}
-          placeholder="wow! love your work and i want to hire you"
+          placeholder="for order inquiries or other general commentary"
         />
         {status === "SUCCESS" ? (
           <p>Thanks!</p>

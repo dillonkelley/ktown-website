@@ -11,22 +11,6 @@ import { shuffleArray } from "../utils/randomizer"
 import "../styles/masonry.css"
 
 const GraphicDesignPage = () => {
-  const options = {
-    settings: {
-      overlayColor: "rgba(0, 0, 0, 0.9)",
-      height: "91vh",
-    },
-    buttons: {
-      showDownloadButton: false,
-      showThumbnailsButton: false,
-      showAutoplayButton: false,
-      size: "10px",
-      showCloseButton: true,
-    },
-    thumbnails: {
-      showThumbnails: false,
-    },
-  }
   const data = useStaticQuery(graphql`
     query {
       allStrapiGraphics {
@@ -62,7 +46,24 @@ const GraphicDesignPage = () => {
     <Layout>
       <Head title="graphic design" />
       <h1>graphic design</h1>
-      <SRLWrapper options={options}>
+      <SRLWrapper
+        options={{
+          settings: {
+            overlayColor: "rgba(0, 0, 0, 0.9)",
+            height: "91vh",
+          },
+          buttons: {
+            showDownloadButton: false,
+            showThumbnailsButton: false,
+            showAutoplayButton: false,
+            size: "10px",
+            showCloseButton: true,
+          },
+          thumbnails: {
+            showThumbnails: false,
+          },
+        }}
+      >
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"

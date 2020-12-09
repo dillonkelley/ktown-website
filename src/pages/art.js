@@ -4,6 +4,7 @@ import Masonry from "react-masonry-css"
 import { SRLWrapper } from "simple-react-lightbox"
 import Head from "../components/head"
 import Layout from "../components/layout"
+import Fade from "react-reveal"
 import { shuffleArray } from "../utils/randomizer"
 import {
   matchFolder,
@@ -72,15 +73,17 @@ const ArtPage = () => {
             const full = parseUrlToFull(edge.node.secure_url)
 
             return (
-              <div className="image" key={i} role="button" tabIndex={0}>
-                <a
-                  href={full}
-                  data-attribute="SRL"
-                  title={edge.node.context.custom.alt}
-                >
-                  <img src={thumb} alt={edge.node.context.custom.caption} />
-                </a>
-              </div>
+              <Fade duration={1000}>
+                <div className="image" key={i} role="button" tabIndex={0}>
+                  <a
+                    href={full}
+                    data-attribute="SRL"
+                    title={edge.node.context.custom.alt}
+                  >
+                    <img src={thumb} alt={edge.node.context.custom.caption} />
+                  </a>
+                </div>
+              </Fade>
             )
           })}
         </Masonry>

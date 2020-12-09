@@ -1,43 +1,23 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
-
+import Fade from "react-reveal"
 import Head from "../components/head"
 import Layout from "../components/layout"
 
 import indexStyles from "./index.module.css"
 
 const WelcomePage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allStrapiSplashImg {
-        edges {
-          node {
-            splashIMg {
-              childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
   return (
     <Layout>
       <Head />
       <div className={indexStyles.container}>
-        <h1 className={indexStyles.title}>karissa talanian</h1>
+        <Fade duration={1000}>
+          <h1 className={indexStyles.title}>karissa talanian</h1>
 
-        <Image
-          className={indexStyles.photo}
-          fluid={
-            data.allStrapiSplashImg.edges[0].node.splashIMg.childImageSharp
-              .fluid
-          }
-        />
+          <img
+            className={indexStyles.photo}
+            src="https://res.cloudinary.com/dgkwrjld1/image/upload/w_700,c_fill,g_auto,e_sharpen/v1607532597/splash/ktown-splashPhoto_lducgf.jpg"
+          />
+        </Fade>
       </div>
     </Layout>
   )

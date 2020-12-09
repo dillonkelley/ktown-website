@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import { SRLWrapper } from "simple-react-lightbox"
 import Masonry from "react-masonry-css"
+import Fade from "react-reveal/Fade"
 
 import Head from "../components/head"
 import Layout from "../components/layout"
@@ -50,7 +51,7 @@ const PhotosPage = () => {
   return (
     <Layout>
       <Head title="macramé" />
-      <h1>macramé</h1>
+      <h1>macrame</h1>
       <SRLWrapper
         options={{
           settings: {
@@ -77,17 +78,18 @@ const PhotosPage = () => {
           {shuffledMacrame.map((edge, i) => {
             const thumb = parseUrlToThumb(edge.node.secure_url)
             const full = parseUrlToFull(edge.node.secure_url)
-            console.log(edge.node.context.custom)
             return (
-              <div className="image" key={i} role="button" tabIndex={0}>
-                <a
-                  href={full}
-                  data-attribute="SRL"
-                  title={edge.node.context.custom.caption}
-                >
-                  <img src={thumb} alt={edge.node.context.custom.alt} />
-                </a>
-              </div>
+              <Fade duration={1000}>
+                <div className="image" key={i} role="button" tabIndex={0}>
+                  <a
+                    href={full}
+                    data-attribute="SRL"
+                    title={edge.node.context.custom.caption}
+                  >
+                    <img src={thumb} alt={edge.node.context.custom.alt} />
+                  </a>
+                </div>
+              </Fade>
             )
           })}
         </Masonry>

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
+import Fade from "react-reveal"
 import Masonry from "react-masonry-css"
 import { SRLWrapper } from "simple-react-lightbox"
 
@@ -77,15 +78,17 @@ const GraphicDesignPage = () => {
             const thumb = parseUrlToThumb(edge.node.secure_url)
             const full = parseUrlToFull(edge.node.secure_url)
             return (
-              <div className="image" key={i} role="button" tabIndex={0}>
-                <a
-                  href={full}
-                  data-attribute="SRL"
-                  title={edge.node.context.custom.alt}
-                >
-                  <img src={thumb} alt={edge.node.context.custom.caption} />
-                </a>
-              </div>
+              <Fade duration={1000}>
+                <div className="image" key={i} role="button" tabIndex={0}>
+                  <a
+                    href={full}
+                    data-attribute="SRL"
+                    title={edge.node.context.custom.alt}
+                  >
+                    <img src={thumb} alt={edge.node.context.custom.caption} />
+                  </a>
+                </div>
+              </Fade>
             )
           })}
         </Masonry>

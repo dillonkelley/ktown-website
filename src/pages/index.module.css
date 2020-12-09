@@ -1,7 +1,7 @@
 .photo {
-  height: 70vh;
-  max-width: 800px;
+  max-height: 70vh;
 }
+
 p {
   font-size: 0.8rem;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -17,5 +17,6 @@ p {
   }
   .photo {
     height: 60vh;
+    max-width: 90vw;
   }
 }

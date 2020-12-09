@@ -1,6 +1,8 @@
 import React from "react"
-import Head from "../components/head"
+import Fade from "react-reveal"
 import { graphql, useStaticQuery } from "gatsby"
+import Head from "../components/head"
+
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -41,21 +43,25 @@ const AboutPage = () => {
   return (
     <Layout>
       <Head title="about" />
+
       <div className={aboutPageStyles.container}>
         <h1>about me</h1>
-        <div className={aboutPageStyles.photoContainer}>
-          <Img
-            fluid={
-              data.allStrapiAboutMe.edges[0].node.portrait.childImageSharp.fluid
-            }
-            className={aboutPageStyles.photo}
-          />
-        </div>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.about.childMarkdownRemark.html,
-          }}
-        ></div>
+        <Fade duration={1000}>
+          <div className={aboutPageStyles.photoContainer}>
+            <Img
+              fluid={
+                data.allStrapiAboutMe.edges[0].node.portrait.childImageSharp
+                  .fluid
+              }
+              className={aboutPageStyles.photo}
+            />
+          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data.about.childMarkdownRemark.html,
+            }}
+          ></div>
+        </Fade>
       </div>
     </Layout>
   )

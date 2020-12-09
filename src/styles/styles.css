@@ -9,12 +9,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(34, 34, 34);
-  background: radial-gradient(
-    circle,
-    rgba(34, 34, 34, 1) 0%,
-    rgba(51, 51, 51, 1) 100%
-  );
+  background: #222;
 }
 
 article,

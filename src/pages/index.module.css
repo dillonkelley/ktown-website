@@ -11,3 +11,11 @@ p {
   margin: 0;
   padding: 0;
 }
+@media screen and (max-width: 700px) {
+  .title {
+    font-size: 4.5rem;
+  }
+  .photo {
+    height: 60vh;
+  }
+}

@@ -1,29 +1,33 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+
+import { SRLWrapper } from "simple-react-lightbox"
 import Masonry from "react-masonry-css"
 
 import Head from "../components/head"
 import Layout from "../components/layout"
-import Card from "../components/cardTemplate/fullCard"
+import {
+  matchFolder,
+  parseUrlToFull,
+  parseUrlToThumb,
+} from "../utils/urlParser"
+
+// import Card from "../components/cardTemplate/fullCard"
 
 import { shuffleArray } from "../utils/randomizer"
 import "../styles/masonry.css"
 
 const PhotosPage = () => {
-  const data = useStaticQuery(graphql`
+  const cloudinaryUrls = useStaticQuery(graphql`
     query {
-      allStrapiMacrames {
+      allCloudinaryMedia {
         edges {
           node {
-            title
-            description
-            backgroundHex
-            fontHex
-            photo {
-              childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+            secure_url
+            context {
+              custom {
+                alt
+                caption
               }
             }
           }
@@ -31,8 +35,12 @@ const PhotosPage = () => {
       }
     }
   `)
-  const macrames = data.allStrapiMacrames.edges
-  const shuffledMacrame = shuffleArray(macrames)
+  const macrameUrls = matchFolder(
+    cloudinaryUrls.allCloudinaryMedia.edges,
+    "macrame"
+  )
+  const shuffledMacrame = shuffleArray(macrameUrls)
+
   const breakpointColumnsObj = {
     default: 3,
     1100: 3,
@@ -43,28 +51,47 @@ const PhotosPage = () => {
     <Layout>
       <Head title="macramé" />
       <h1>macramé</h1>
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
+      <SRLWrapper
+        options={{
+          settings: {
+            overlayColor: "rgba(0, 0, 0, 0.9)",
+            height: "91vh",
+          },
+          buttons: {
+            showDownloadButton: false,
+            showThumbnailsButton: false,
+            showAutoplayButton: false,
+            size: "10px",
+            showCloseButton: true,
+          },
+          thumbnails: {
+            showThumbnails: false,
+          },
+        }}
       >
-        {shuffledMacrame.map((edge, i) => {
-          console.log("searching for the height:", edge.node.childImageSharp)
-          //random funtion
-          console.log(i)
-          return (
-            <Card
-              key={i}
-              src={edge.node.photo.childImageSharp.fluid}
-              title={edge.node.title}
-              description={edge.node.description}
-              background={edge.node.backgroundHex}
-              fontColor={edge.node.fontHex}
-              // height={edge.node.photo.childImageSharp.fluid.tracedSVG}
-            />
-          )
-        })}
-      </Masonry>
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {shuffledMacrame.map((edge, i) => {
+            const thumb = parseUrlToThumb(edge.node.secure_url)
+            const full = parseUrlToFull(edge.node.secure_url)
+            console.log(edge.node.context.custom)
+            return (
+              <div className="image" key={i} role="button" tabIndex={0}>
+                <a
+                  href={full}
+                  data-attribute="SRL"
+                  title={edge.node.context.custom.caption}
+                >
+                  <img src={thumb} alt={edge.node.context.custom.alt} />
+                </a>
+              </div>
+            )
+          })}
+        </Masonry>
+      </SRLWrapper>
     </Layout>
   )
 }

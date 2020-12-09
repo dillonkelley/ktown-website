@@ -2,28 +2,28 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Masonry from "react-masonry-css"
 import { SRLWrapper } from "simple-react-lightbox"
-import Img from "gatsby-image"
 import Head from "../components/head"
 import Layout from "../components/layout"
 import { shuffleArray } from "../utils/randomizer"
+import {
+  matchFolder,
+  parseUrlToFull,
+  parseUrlToThumb,
+} from "../utils/urlParser"
 
 import "../styles/masonry.css"
 
 const ArtPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allStrapiArts {
+  const cloudinaryUrls = useStaticQuery(graphql`
+    query cloudinaryImageAndCloudinaryImage {
+      allCloudinaryMedia {
         edges {
           node {
-            Title
-            description
-            backgroundHex
-            fontHex
-            photo {
-              childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+            secure_url
+            context {
+              custom {
+                alt
+                caption
               }
             }
           }
@@ -31,8 +31,9 @@ const ArtPage = () => {
       }
     }
   `)
-  const arts = data.allStrapiArts.edges
-  const shuffledArt = shuffleArray(arts)
+  const artUrls = matchFolder(cloudinaryUrls.allCloudinaryMedia.edges, "art")
+  const shuffledArt = shuffleArray(artUrls)
+
   const breakpointColumnsObj = {
     default: 3,
     1100: 3,
@@ -67,14 +68,18 @@ const ArtPage = () => {
           columnClassName="my-masonry-grid_column"
         >
           {shuffledArt.map((edge, i) => {
+            const thumb = parseUrlToThumb(edge.node.secure_url)
+            const full = parseUrlToFull(edge.node.secure_url)
+
             return (
-              <div className="posters" key={i} role="button" tabIndex={0}>
-                <Img
-                  fluid={edge.node.photo.childImageSharp.fluid}
-                  title={edge.node.Title}
-                  alt={edge.node.description}
-                  style={{ cursor: "pointer" }}
-                />
+              <div className="image" key={i} role="button" tabIndex={0}>
+                <a
+                  href={full}
+                  data-attribute="SRL"
+                  title={edge.node.context.custom.alt}
+                >
+                  <img src={thumb} alt={edge.node.context.custom.caption} />
+                </a>
               </div>
             )
           })}

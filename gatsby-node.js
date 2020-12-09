@@ -1,10 +1,4 @@
-module.exports.onCreateNode = async ({
-  node,
-  actions,
-  createNodeId,
-  store,
-  cache,
-}) => {
+module.exports.onCreateNode = async ({ node, actions, createNodeId }) => {
   const crypto = require(`crypto`)
 
   if (node.internal.type === "StrapiAboutMe") {

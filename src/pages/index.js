@@ -29,7 +29,7 @@ const WelcomePage = () => {
     <Layout>
       <Head />
       <div className={indexStyles.container}>
-        <h1>karissa talanian</h1>
+        <h1 className={indexStyles.title}>karissa talanian</h1>
 
         <Image
           className={indexStyles.photo}

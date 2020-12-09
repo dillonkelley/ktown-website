@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: "Karissa Talanian",
@@ -21,7 +23,7 @@ module.exports = {
           `https://karissa-talanian-cms.herokuapp.com` ||
           `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`macrames`, `arts`, `graphics`],
+        // contentTypes: [`macrames`, `arts`, `graphics`],
         singleTypes: [`splash-img`, `about-me`],
       },
     },
@@ -38,6 +40,20 @@ module.exports = {
         gfm: true,
         // Plugins configs
         plugins: [],
+      },
+    },
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_NAME,
+        apiKey: process.env.CLOUDINARY_KEY,
+        apiSecret: process.env.CLOUDINARY_SECRET,
+        resourceType: `image`,
+        maxResults: 200,
+        context: true,
+        tags: true,
+        // type: `type Value`,
+        // prefix: `abc-xyz/`,
       },
     },
   ],

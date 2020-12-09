@@ -10,8 +10,9 @@ const SideNav = props => {
     <nav className={navbarStyle.sidebarMain} style={props.style}>
       <Link to="/">
         <img
-          src="https://res.cloudinary.com/dgkwrjld1/image/upload/v1607533023/logo/transSun_frmqj6.jpg"
+          src="https://res.cloudinary.com/dgkwrjld1/image/upload/v1607543476/logo/loge_dwwvm9.png"
           className={navbarStyle.logo}
+          alt="karaissa-talanian-logo"
         />
       </Link>
 
@@ -33,10 +34,7 @@ const SideNav = props => {
 
       {/*Social Media ************** */}
       <div className={navbarStyle.icons} id="social-medias">
-        <a
-          href="https://www.instagram.com/swinginspathiphyllums/"
-          target="blank"
-        >
+        <a href="https://www.instagram.com/tagomagospaceritual/" target="blank">
           <FaInstagram />
         </a>
       </div>

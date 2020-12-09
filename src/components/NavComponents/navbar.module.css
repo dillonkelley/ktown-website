@@ -41,8 +41,8 @@ nav a:hover {
   display: none;
 }
 .logo {
-  border-radius: 50%;
-  max-width: 3rem;
+  /* border-radius: 50%; */
+  max-width: 5rem;
 }
 
 .icons {

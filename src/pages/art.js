@@ -44,36 +44,36 @@ const ArtPage = () => {
   return (
     <Layout>
       <Head title="art" />
-      <h1>fiber art</h1>
-      <SRLWrapper
-        options={{
-          settings: {
-            overlayColor: "rgba(0, 0, 0, 0.9)",
-            height: "91vh",
-          },
-          buttons: {
-            showDownloadButton: false,
-            showThumbnailsButton: false,
-            showAutoplayButton: false,
-            size: "10px",
-            showCloseButton: true,
-          },
-          thumbnails: {
-            showThumbnails: false,
-          },
-        }}
-      >
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
+      <Fade duration={1000}>
+        <h1>fiber art</h1>
+        <SRLWrapper
+          options={{
+            settings: {
+              overlayColor: "rgba(0, 0, 0, 0.9)",
+              height: "91vh",
+            },
+            buttons: {
+              showDownloadButton: false,
+              showThumbnailsButton: false,
+              showAutoplayButton: false,
+              size: "10px",
+              showCloseButton: true,
+            },
+            thumbnails: {
+              showThumbnails: false,
+            },
+          }}
         >
-          {shuffledArt.map((edge, i) => {
-            const thumb = parseUrlToThumb(edge.node.secure_url)
-            const full = parseUrlToFull(edge.node.secure_url)
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {shuffledArt.map((edge, i) => {
+              const thumb = parseUrlToThumb(edge.node.secure_url)
+              const full = parseUrlToFull(edge.node.secure_url)
 
-            return (
-              <Fade duration={1000}>
+              return (
                 <div className="image" key={i} role="button" tabIndex={0}>
                   <a
                     href={full}
@@ -83,11 +83,11 @@ const ArtPage = () => {
                     <img src={thumb} alt={edge.node.context.custom.caption} />
                   </a>
                 </div>
-              </Fade>
-            )
-          })}
-        </Masonry>
-      </SRLWrapper>
+              )
+            })}
+          </Masonry>
+        </SRLWrapper>
+      </Fade>
     </Layout>
   )
 }

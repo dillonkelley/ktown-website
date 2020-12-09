@@ -40,7 +40,7 @@ const MobileNav = () => {
               onClick={() => setIsChecked(!isChecked)}
             >
               <img
-                src="https://res.cloudinary.com/dgkwrjld1/image/upload/v1607533023/logo/transSun_frmqj6.jpg"
+                src="https://res.cloudinary.com/dgkwrjld1/image/upload/v1607543476/logo/loge_dwwvm9.png"
                 className={navbarStyle.logo}
                 alt="karissa-talanian-logo"
               />
@@ -84,7 +84,7 @@ const MobileNav = () => {
 
             <div className={navbarStyle.icons} id="social-medias">
               <a
-                href="https://www.instagram.com/swinginspathiphyllums/"
+                href="https://www.instagram.com/tagomagospaceritual/"
                 target="blank"
               >
                 <FaInstagram />

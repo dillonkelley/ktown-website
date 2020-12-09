@@ -43,10 +43,9 @@ const AboutPage = () => {
   return (
     <Layout>
       <Head title="about" />
-
-      <div className={aboutPageStyles.container}>
-        <h1>about me</h1>
-        <Fade duration={1000}>
+      <Fade duration={1000}>
+        <div className={aboutPageStyles.container}>
+          <h1>about me</h1>
           <div className={aboutPageStyles.photoContainer}>
             <Img
               fluid={
@@ -61,8 +60,8 @@ const AboutPage = () => {
               __html: data.about.childMarkdownRemark.html,
             }}
           ></div>
-        </Fade>
-      </div>
+        </div>
+      </Fade>
     </Layout>
   )
 }

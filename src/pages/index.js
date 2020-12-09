@@ -15,6 +15,7 @@ const WelcomePage = () => {
 
           <img
             className={indexStyles.photo}
+            alt="macrame-karissia-talanian"
             src="https://res.cloudinary.com/dgkwrjld1/image/upload/w_700,c_fill,g_auto,e_sharpen/v1607532597/splash/ktown-splashPhoto_lducgf.jpg"
           />
         </Fade>

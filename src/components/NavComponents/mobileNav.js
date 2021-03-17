@@ -89,6 +89,9 @@ const MobileNav = () => {
               >
                 <FaInstagram />
               </a>
+              <a href="https://twitter.com/amonduulthree" target="blank">
+                <FaTwitter />
+              </a>
             </div>
           </nav>
         </Fade>

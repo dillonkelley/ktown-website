@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Fade from "react-reveal/Fade"
-import { FaInstagram } from "react-icons/fa"
+import { FaInstagram, FaTwitter } from "react-icons/fa"
 import { Link } from "gatsby"
 
 import navbarStyle from "./navbar.module.css"

@@ -54,18 +54,18 @@ const MobileNav = () => {
               macrame
             </Link>
             <Link
-              to="/art"
-              activeClassName={navbarStyle.active}
-              onClick={() => setIsChecked(!isChecked)}
-            >
-              fiber art
-            </Link>
-            <Link
               to="/graphicDesign"
               activeClassName={navbarStyle.active}
               onClick={() => setIsChecked(!isChecked)}
             >
               graphic design
+            </Link>
+            <Link
+              to="/art"
+              activeClassName={navbarStyle.active}
+              onClick={() => setIsChecked(!isChecked)}
+            >
+              other art
             </Link>
             <Link
               to="/about"

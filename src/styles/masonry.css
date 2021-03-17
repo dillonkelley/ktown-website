@@ -1,6 +1,7 @@
 img {
   margin: 0;
 }
+
 .my-masonry-grid {
   display: -webkit-box;
   /* Not needed if autoprefixing */

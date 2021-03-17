@@ -9,15 +9,17 @@ import layoutStyle from "./layout.module.css"
 
 const Layout = props => {
   return (
-    <div className={layoutStyle.body}>
-      <Navbar />
-      <div className={layoutStyle.content}>
-        <SimpleReactLightbox>
-          <main>{props.children}</main>
-        </SimpleReactLightbox>
+    <>
+      <div className={layoutStyle.body}>
+        <Navbar />
+        <div className={layoutStyle.content}>
+          <SimpleReactLightbox>
+            <main>{props.children}</main>
+          </SimpleReactLightbox>
+        </div>
       </div>
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -1,5 +1,6 @@
 .photo {
   max-height: 70vh;
+  border-radius: 1rem;
 }
 
 p {
@@ -16,7 +17,7 @@ p {
     font-size: 4.5rem;
   }
   .photo {
-    height: 60vh;
-    max-width: 90vw;
+    width: 100%;
+    object-fit: cover;
   }
 }

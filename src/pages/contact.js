@@ -18,23 +18,25 @@ const ContactPage = () => {
           onSubmit={() => setStatus(true)}
           className={formStyle.form}
         >
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">email:</label>
           <input
             type="email"
             name="email"
             placeholder="youremail@website.com"
+            required
           />
-          <label htmlFor="message">Message:</label>
+          <label htmlFor="message">message:</label>
           <textarea
             type="text"
             name="message"
             className={formStyle.messageBox}
             placeholder="for order inquiries or other general commentary"
+            required
           />
           {status === "SUCCESS" ? (
-            <p>Thanks!</p>
+            <p>thank you very much ;)</p>
           ) : (
-            <button className={formStyle.submit}>Submit</button>
+            <button className={formStyle.submit}>submit</button>
           )}
           {status === "ERROR" && <p>Ooops! There was an error.</p>}
         </form>

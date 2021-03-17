@@ -45,7 +45,7 @@ const ArtPage = () => {
     <Layout>
       <Head title="art" />
       <Fade duration={1000}>
-        <h1>fiber art</h1>
+        <h1>other art</h1>
         <SRLWrapper
           options={{
             settings: {

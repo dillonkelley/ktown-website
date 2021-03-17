@@ -4,6 +4,11 @@ module.exports = {
   siteMetadata: {
     title: "Karissa Talanian",
     author: "Dillon Kelley",
+    description:
+      "Karissa Talanian is a Chicago based artist, musician, and designer. Her work is influenced by psychedelic culture and esoteric Japanese endeavors.",
+    url: "https://karissatalanian.com",
+    image: `${__dirname}/src/imgStatic/karissa_bio.webp`,
+    twitterUsername: "amonduulthree",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

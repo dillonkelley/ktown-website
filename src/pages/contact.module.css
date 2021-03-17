@@ -6,16 +6,24 @@
   background: none;
   margin: 0;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .description p {
   font-size: 1rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .form input {
   padding: 0.5rem;
+  background: #4674ba;
+  color: #f4f4f4;
+  border-radius: 1rem;
+  border: none;
+}
+.form input:focus {
+  outline: none;
+  border-radius: 1rem;
 }
 
 .form label {
@@ -26,9 +34,30 @@
 .messageBox {
   height: 13rem;
   padding: 1rem;
+  background: #4674ba;
+  color: #f4f4f4;
+  border-radius: 1rem;
+  border: none;
+  resize: none;
 }
-
+textarea:focus {
+  outline: none;
+  border-radius: 1rem;
+}
 .submit {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  width: 25%;
   padding: 0.5rem;
+  background: #4674ba;
+  color: #f4f4f4;
+  border-radius: 1rem;
+  border: none;
+}
+.submit:focus {
+  outline: none;
+}
+.submit:hover {
+  background: #f4f4f4;
+  color: #4674ba;
+  cursor: pointer;
 }

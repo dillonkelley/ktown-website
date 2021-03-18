@@ -33,7 +33,10 @@ const AboutPage = () => {
           <p>i have a dog named roo roo that i love a lot</p>
           <p>
             also run a small press cassette label that releases experimental
-            music from japan http://eyevyberecords.com
+            music from japan{" "}
+            <a href="http://eyevyberecords.com" target="_blank">
+              eye vybe records
+            </a>
           </p>
           <h3>CV</h3>
           <ul>
